@@ -5,7 +5,7 @@ import json, subprocess, random, string
 from tqdm import tqdm
 from glob import glob
 import torch
-import face_alignment
+import face_detection
 
 
 import audio
@@ -63,7 +63,7 @@ def get_smoothened_boxes(boxes, T):
     return boxes
 
 def face_detect(images):
-    detector = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, 
+    detector = face_detection.FaceAlignment(face_detection.LandmarksType._2D, 
                                             flip_input=False, device=device)
 
     batch_size = args.face_det_batch_size
