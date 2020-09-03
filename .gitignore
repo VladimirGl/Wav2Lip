@@ -11,3 +11,5 @@ filelists/*.txt
 evaluation/test_filelists/lr*.txt
 *.pyc
 *.mkv
+
+*.DS_Store
