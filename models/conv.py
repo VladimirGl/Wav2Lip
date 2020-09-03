@@ -2,6 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
+
 class Conv2d(nn.Module):
     def __init__(self, cin, cout, kernel_size, stride, padding, residual=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -18,6 +19,7 @@ class Conv2d(nn.Module):
             out += x
         return self.act(out)
 
+
 class nonorm_Conv2d(nn.Module):
     def __init__(self, cin, cout, kernel_size, stride, padding, residual=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -29,6 +31,7 @@ class nonorm_Conv2d(nn.Module):
     def forward(self, x):
         out = self.conv_block(x)
         return self.act(out)
+
 
 class Conv2dTranspose(nn.Module):
     def __init__(self, cin, cout, kernel_size, stride, padding, output_padding=0, *args, **kwargs):

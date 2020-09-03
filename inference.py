@@ -1,11 +1,16 @@
 from os import listdir, path
 import numpy as np
-import scipy, cv2, os, sys, argparse, audio
+import scipy, cv2, os, sys, argparse
 import json, subprocess, random, string
 from tqdm import tqdm
 from glob import glob
-import torch, face_detection
+import torch
+import face_detection
+
+
+import audio
 from models import Wav2Lip
+
 
 parser = argparse.ArgumentParser(description='Inference code to lip-sync videos in the wild using Wav2Lip models')
 
@@ -251,7 +256,7 @@ def main():
 			pred = model(mel_batch, img_batch)
 
 		pred = pred.cpu().numpy().transpose(0, 2, 3, 1) * 255.
-		
+
 		for p, f, c in zip(pred, frames, coords):
 			y1, y2, x1, x2 = c
 			p = cv2.resize(p.astype(np.uint8), (x2 - x1, y2 - y1))

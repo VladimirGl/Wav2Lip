@@ -2,6 +2,7 @@ from tensorflow.contrib.training import HParams
 from glob import glob
 import os
 
+
 def get_image_list(data_root, split):
 	filelist = []
 
@@ -12,6 +13,7 @@ def get_image_list(data_root, split):
 			filelist.append(os.path.join(data_root, line))
 
 	return filelist
+
 
 # Default hyperparameters
 hparams = HParams(
