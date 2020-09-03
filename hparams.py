@@ -1,7 +1,7 @@
 from collections import namedtuple
 
 
-HParams = namedtuple('HParams', ['num_mels', 'rescale', 'rescaling_max', 'use_lws', 'n_fft',
+HParams = namedtuple('HParams', ['num_mels', 'rescale', 'rescaling_max', 'n_fft',
                                     'hop_size', 'win_size', 'sample_rate', 'frame_shift_ms',
                                     'signal_normalization', 'allow_clipping_in_normalization',
                                     'symmetric_mels', 'max_abs_value', 'preemphasize', 'preemphasis',
